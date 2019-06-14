@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import type="android.view.View" />
+        <variable
+            name="signInText"
+            type="com.sriniavsprojectpool.beacon.MainActivity" />
+    </data>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".MainActivity">
+
+        <TextView
+            android:id="@+id/loginTxtId"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/login_circle_drawable"
+            android:elevation="6dp"
+            android:fontFamily="monospace"
+            android:gravity="center"
+            android:text="Beacon"
+            android:textColor="#ffffff"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintLeft_toLeftOf="@+id/loginCardView"
+            app:layout_constraintRight_toRightOf="@id/loginCardView"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/loginCardView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="25dp"
+            android:layout_marginTop="100dp"
+            android:layout_marginRight="25dp"
+            android:layout_marginBottom="100dp"
+            android:backgroundTint="#FEE5D8"
+            android:elevation="5dp"
+            android:shadowColor="#000000"
+            app:cardCornerRadius="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0">
+
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginRight="75dp"
+                android:layout_marginLeft="75dp"
+                android:layout_marginTop="75dp"
+                android:layout_marginBottom="20dp">
+
+                <Button
+                    android:id="@+id/signInStudent"
+                    android:background="@drawable/google_sign_btn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:drawableLeft="@drawable/google_icon"
+                    android:paddingLeft="20dp"
+                    android:textStyle="bold"
+                    android:textColor="#FF9247"
+                    android:elevation="10dp"
+                    android:text="@{signInText.studentSignInText}"
+                    android:onClick="@{signInText::signIn}"
+                    app:layout_constraintBottom_toTopOf="@+id/signInManagement"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                </Button>
+                <Button
+                    android:id="@+id/signInManagement"
+                    android:layout_width="match_parent"
+                    android:background="@drawable/google_sign_btn"
+                    android:layout_height="wrap_content"
+                    android:text="@{signInText.managementSignInText}"
+                    android:drawableLeft="@drawable/google_icon"
+                    android:paddingLeft="20dp"
+                    android:textStyle="bold"
+                    android:textColor="#FF9247"
+                    android:elevation="10dp"
+                    android:onClick="@{signInText::signIn}"
+                    app:layout_constraintTop_toBottomOf="@+id/signInStudent"
+                    app:layout_constraintBottom_toTopOf="@id/signInGuest">
+
+                </Button>
+
+                <Button
+                    android:id="@+id/signInGuest"
+                    android:background="@drawable/google_sign_btn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@{signInText.guestSignInText}"
+                    android:drawableLeft="@drawable/google_icon"
+                    android:paddingLeft="20dp"
+                    android:textStyle="bold"
+                    android:textColor="#FF9247"
+                    android:elevation="10dp"
+                    android:onClick="@{signInText::signIn}"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/signInManagement">
+
+                </Button>
+
+
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </androidx.cardview.widget.CardView>
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
